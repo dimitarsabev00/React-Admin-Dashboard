@@ -20,22 +20,14 @@ const SideBar = () => {
     <div className="sidebar">
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
-          <h4 className="sidebarTitle">Dashboard</h4>
+          <h4 className="sidebarTitle">Main</h4>
           <ul className="sidebarList">
             <Link to="/" className="link">
               <li className="sidebarListItem active">
                 <LineStyle className="sidebarIcon" />
-                Home
+                Dashboard
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Analytics
-            </li>
-            <li className="sidebarListItem">
-              <TrendingUp className="sidebarIcon" />
-              Sales
-            </li>
           </ul>
         </div>
         <div className="sidebarMenu">
