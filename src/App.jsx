@@ -7,6 +7,8 @@ import New from "./pages/New/New";
 import "./styleApp/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
+import Login from "./pages/Login/Login";
+import RequireAuth from "./components/RequireAuth/RequireAuth";
 const App = () => {
   const { darkMode } = useContext(DarkModeContext);
   return (
@@ -14,13 +16,39 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/">
-            <Route index element={<Home />} />
+            <Route
+              index
+              element={
+                <RequireAuth>
+                  <Home />
+                </RequireAuth>
+              }
+            />
+            <Route path="login" element={<Login />} />
             <Route path="users">
-              <Route index element={<Users />} />
-              <Route path=":userId" element={<UserDetails />} />
+              <Route
+                index
+                element={
+                  <RequireAuth>
+                    <Users />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path=":userId"
+                element={
+                  <RequireAuth>
+                    <UserDetails />
+                  </RequireAuth>
+                }
+              />
               <Route
                 path="new"
-                element={<New inputs={userInputs} title="Add New User" />}
+                element={
+                  <RequireAuth>
+                    <New inputs={userInputs} title="Add New User" />
+                  </RequireAuth>
+                }
               />
             </Route>
             {/* <Route path="products">
