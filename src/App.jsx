@@ -1,34 +1,40 @@
-import React from "react";
-import TopBar from "./components/TopBar/TopBar";
-import "./App.css";
-import Sidebar from "./components/SideBar/SideBar";
-import Home from "./pages/Home/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import UserList from "./pages/UserList/UserList";
+import { productInputs, userInputs } from "./formSource";
+import Home from "./pages/Home/Home";
+import Users from "./pages/Users/Users";
 import UserDetails from "./pages/UserDetails/UserDetails";
-import NewUser from "./pages/NewUser/NewUser";
-import ProductList from "./pages/ProductList/ProductList";
-import ProductDetails from "./pages/ProductDetails/ProductDetails";
-import NewProduct from "./pages/NewProduct/NewProduct";
+import New from "./pages/New/New";
+import "./styleApp/dark.scss";
+import { useContext } from "react";
+import { DarkModeContext } from "./context/darkModeContext";
 const App = () => {
+  const { darkMode } = useContext(DarkModeContext);
   return (
-    <Router>
-      <TopBar />
-      <div className="container">
-        <Sidebar />
+    <div className={darkMode ? "app dark" : "app"}>
+      <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/users" element={<UserList />} />
-          <Route path="/user/:userId" element={<UserDetails />} />
-          <Route path="/newUser" element={<NewUser />} />
-          <Route path="/products" element={<ProductList />} />
-
-          <Route path="/product/:productId" element={<ProductDetails />} />
-
-          <Route path="/newproduct" element={<NewProduct />} />
+          <Route path="/">
+            <Route index element={<Home />} />
+            <Route path="users">
+              <Route index element={<Users />} />
+              <Route path=":userId" element={<UserDetails />} />
+              <Route
+                path="new"
+                element={<New inputs={userInputs} title="Add New User" />}
+              />
+            </Route>
+            {/* <Route path="products">
+              <Route index element={} />
+              <Route path=":productId" element={<Single />} />
+              <Route
+                path="new"
+                element={<New inputs={productInputs} title="Add New Product" />}
+              />
+            </Route> */}
+          </Route>
         </Routes>
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 };
 

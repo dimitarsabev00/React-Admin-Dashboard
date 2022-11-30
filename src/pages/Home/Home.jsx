@@ -1,22 +1,31 @@
-import "./Home.css";
-import FeaturedInfo from "../../components/FeaturedInfo/FeaturedInfo";
+import Navbar from "../../components/NavBar/NavBar";
+import Sidebar from "../../components/sidebar/Sidebar";
+import Widget from "../../components/Widget/Widget";
 import Chart from "../../components/Chart/Chart";
-import { userData } from "../../dummyData";
-import WidgetSm from "../../components/WidgetSm/WidgetSm";
-import WidgetLg from "../../components/WidgetLg/WidgetLg";
+import "./Home.scss";
+import Featured from "../../components/Featured/Featured";
+import LatestTransactionTable from "../../components/LatestTransactionTable/LatestTransactionTable";
+
 const Home = () => {
   return (
     <div className="home">
-      <FeaturedInfo />
-      <Chart
-        data={userData}
-        title="User Analytics"
-        grid
-        dataKey="Active User"
-      />
-      <div className="homeWidgets">
-        <WidgetSm />
-        <WidgetLg />
+      <Sidebar />
+      <div className="homeContainer">
+        <Navbar />
+        <div className="widgets">
+          <Widget type="user" />
+          <Widget type="order" />
+          <Widget type="earning" />
+          <Widget type="balance" />
+        </div>
+        <div className="charts">
+          <Featured />
+          <Chart title="Last 6 Months (Revenue)" aspect={2 / 1} />
+        </div>
+        <div className="listContainer">
+          <div className="listTitle">Latest Transactions</div>
+          <LatestTransactionTable />
+        </div>
       </div>
     </div>
   );
