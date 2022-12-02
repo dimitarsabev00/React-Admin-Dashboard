@@ -1,12 +1,32 @@
 import "./DataTableUsers.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../../dummyData/dataTableSource";
+import { userColumns } from "../../dataTableSource/dataTableSource";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { collection, onSnapshot } from "firebase/firestore";
+import { db } from "../../config/firebase";
 const DataTableUsers = () => {
-  const [data, setData] = useState(userRows);
+  const [data, setData] = useState("");
+  useEffect(() => {
+    // LISTEN  (REALTIME DATA FROM FIREBASE FIRESTORE)
+    const unsub = onSnapshot(
+      collection(db, "users"),
+      (snapShot) => {
+        let list = [];
+        snapShot.docs.forEach((doc) => {
+          list.push({ id: doc.id, ...doc.data() });
+        });
+        setData(list);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
 
+    return () => {
+      unsub();
+    };
+  }, []);
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
