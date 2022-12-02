@@ -31,7 +31,7 @@ export const userInputs = [
   },
 
   {
-    id: "adress",
+    id: "address",
     label: "Address",
     type: "text",
     placeholder: "Elton St. 216 NewYork",
