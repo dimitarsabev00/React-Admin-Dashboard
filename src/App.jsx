@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import Login from "./pages/Login/Login";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
+import Products from "./pages/Products/Products";
 const App = () => {
   const { darkMode } = useContext(DarkModeContext);
   return (
@@ -46,19 +47,29 @@ const App = () => {
                 path="new"
                 element={
                   <RequireAuth>
-                    <New inputs={userInputs} title="Add New User" />
+                    <New
+                      inputs={userInputs}
+                      title="Add New User"
+                      coll="users"
+                    />
                   </RequireAuth>
                 }
               />
             </Route>
-            {/* <Route path="products">
-              <Route index element={} />
-              <Route path=":productId" element={<Single />} />
+            <Route path="products">
+              <Route index element={<Products />} />
+              {/* <Route path=":productId" element={<Single />} /> */}
               <Route
                 path="new"
-                element={<New inputs={productInputs} title="Add New Product" />}
+                element={
+                  <New
+                    inputs={productInputs}
+                    title="Add New Product"
+                    coll="products"
+                  />
+                }
               />
-            </Route> */}
+            </Route>
           </Route>
         </Routes>
       </Router>

@@ -8,7 +8,7 @@ import { db, storage } from "../../config/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 
-const New = ({ inputs, title }) => {
+const New = ({ inputs, title, coll }) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
   const [per, setPerc] = useState(null);
@@ -63,7 +63,7 @@ const New = ({ inputs, title }) => {
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      await addDoc(collection(db, "users"), {
+      await addDoc(collection(db, coll), {
         ...data,
         timeStamp: serverTimestamp(),
       });
