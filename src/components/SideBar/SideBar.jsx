@@ -11,12 +11,24 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import { Link } from "react-router-dom";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { Link, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
-
+  const { logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      localStorage.removeItem("user");
+      navigate("/login");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
     <div className="sidebar">
       <div className="top">
@@ -51,10 +63,7 @@ const Sidebar = () => {
             <CreditCardIcon className="icon" />
             <span>Orders</span>
           </li>
-          <li>
-            <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
-          </li>
+
           <p className="title">USEFUL</p>
           <li>
             <InsertChartIcon className="icon" />
@@ -83,8 +92,12 @@ const Sidebar = () => {
             <span>Profile</span>
           </li>
           <li>
+            <CalendarMonthIcon className="icon" />
+            <span>Calendar</span>
+          </li>
+          <li>
             <ExitToAppIcon className="icon" />
-            <span>Logout</span>
+            <span onClick={handleLogout}>Logout</span>
           </li>
         </ul>
       </div>
