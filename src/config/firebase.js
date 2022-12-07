@@ -3,7 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 const firebaseConfig = {
-  apiKey: "AIzaSyARsS0SwQIW38n7EigGlRuWWGf9VW4RxOY",
+  apiKey: process.env.API_KEY_FIREBASE,
   authDomain: "react-admin-dashboard-7ebfc.firebaseapp.com",
   projectId: "react-admin-dashboard-7ebfc",
   storageBucket: "react-admin-dashboard-7ebfc.appspot.com",
