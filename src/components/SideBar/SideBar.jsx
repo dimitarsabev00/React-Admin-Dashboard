@@ -58,10 +58,12 @@ const Sidebar = () => {
               <span>Products</span>
             </li>
           </Link>
-          <li>
-            <CreditCardIcon className="icon" />
-            <span>Orders</span>
-          </li>
+          <Link to="/orders" style={{ textDecoration: "none" }}>
+            <li>
+              <CreditCardIcon className="icon" />
+              <span>Orders</span>
+            </li>
+          </Link>
 
           <p className="title">USEFUL</p>
           <li>
@@ -77,7 +79,7 @@ const Sidebar = () => {
             <SettingsSystemDaydreamOutlinedIcon className="icon" />
             <span>System Health</span>
           </li>
-          
+
           <li>
             <SettingsApplicationsIcon className="icon" />
             <span>Settings</span>
