@@ -1,5 +1,5 @@
 import "./DataTableProducts.scss";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { productColumns } from "../../dataTableSource/dataTableSource";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -76,6 +76,7 @@ const DataTableProducts = () => {
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
+        components={{ Toolbar: GridToolbar }}
       />
     </div>
   );
