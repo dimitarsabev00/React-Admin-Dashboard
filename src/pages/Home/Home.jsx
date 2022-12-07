@@ -1,5 +1,5 @@
 import Navbar from "../../components/NavBar/NavBar";
-import Sidebar from "../../components/sidebar/Sidebar";
+import SideBar from "../../components/SideBar/SideBar";
 import Widget from "../../components/Widget/Widget";
 import Chart from "../../components/Chart/Chart";
 import "./Home.scss";
@@ -9,7 +9,7 @@ import LatestTransactionTable from "../../components/LatestTransactionTable/Late
 const Home = () => {
   return (
     <div className="home">
-      <Sidebar />
+      <SideBar />
       <div className="homeContainer">
         <Navbar />
         <div className="widgets">
