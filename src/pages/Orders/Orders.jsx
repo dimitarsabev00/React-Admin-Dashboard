@@ -3,7 +3,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import NavBar from "../../components/NavBar/NavBar";
 import LatestTransactionTable from "../../components/LatestTransactionTable/LatestTransactionTable";
 
-const UserDetails = () => {
+const Orders = () => {
   return (
     <div className="orders">
       <Sidebar />
@@ -19,4 +19,4 @@ const UserDetails = () => {
   );
 };
 
-export default UserDetails;
+export default Orders;
