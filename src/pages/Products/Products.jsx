@@ -1,14 +1,14 @@
 import "./Products.scss";
-import Sidebar from "../../components/sidebar/Sidebar";
-import Navbar from "../../components/navbar/Navbar";
+import SideBar from "../../components/SideBar/SideBar";
+import NavBar from "../../components/NavBar/NavBar";
 import DataTableProducts from "../../components/DataTableProducts/DataTableProducts";
 
 const Products = () => {
   return (
     <div className="list">
-      <Sidebar />
+      <SideBar />
       <div className="listContainer">
-        <Navbar />
+        <NavBar />
         <DataTableProducts />
       </div>
     </div>

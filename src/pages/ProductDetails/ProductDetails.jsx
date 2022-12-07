@@ -1,5 +1,5 @@
 import "./ProductDetails.scss";
-import Sidebar from "../../components/Sidebar/Sidebar";
+import SideBar from "../../components/SideBar/SideBar";
 import NavBar from "../../components/NavBar/NavBar";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -21,7 +21,7 @@ const ProductDetails = () => {
   }, [productId]);
   return (
     <div className="productDetails">
-      <Sidebar />
+      <SideBar />
       <div className="productDetailsContainer">
         <NavBar />
         <div className="wrapper">

@@ -1,4 +1,4 @@
-import Navbar from "../../components/NavBar/NavBar";
+import NavBar from "../../components/NavBar/NavBar";
 import SideBar from "../../components/SideBar/SideBar";
 import Widget from "../../components/Widget/Widget";
 import Chart from "../../components/Chart/Chart";
@@ -11,7 +11,7 @@ const Home = () => {
     <div className="home">
       <SideBar />
       <div className="homeContainer">
-        <Navbar />
+        <NavBar />
         <div className="widgets">
           <Widget type="user" />
           <Widget type="product" />

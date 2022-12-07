@@ -1,5 +1,5 @@
 import "./UserDetails.scss";
-import Sidebar from "../../components/Sidebar/Sidebar";
+import SideBar from "../../components/SideBar/SideBar";
 import NavBar from "../../components/NavBar/NavBar";
 import Chart from "../../components/Chart/Chart";
 import LatestTransactionTable from "../../components/LatestTransactionTable/LatestTransactionTable";
@@ -24,7 +24,7 @@ const UserDetails = () => {
   console.log(user);
   return (
     <div className="userDetails">
-      <Sidebar />
+      <SideBar />
       <div className="userDetailsContainer">
         <NavBar />
         <div className="top">

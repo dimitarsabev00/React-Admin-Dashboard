@@ -1,12 +1,12 @@
 import "./Orders.scss";
-import Sidebar from "../../components/Sidebar/Sidebar";
+import SideBar from "../../components/SideBar/SideBar";
 import NavBar from "../../components/NavBar/NavBar";
 import LatestTransactionTable from "../../components/LatestTransactionTable/LatestTransactionTable";
 
 const Orders = () => {
   return (
     <div className="orders">
-      <Sidebar />
+      <SideBar />
       <div className="ordersContainer">
         <NavBar />
 

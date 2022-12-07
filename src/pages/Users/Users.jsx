@@ -1,6 +1,6 @@
 import "./Users.scss";
 import SideBar from "../../components/SideBar/SideBar";
-import Navbar from "../../components/navbar/Navbar";
+import NavBar from "../../components/NavBar/NavBar";
 import DataTableUsers from "../../components/DataTableUsers/DataTableUsers";
 
 const Users = () => {
@@ -8,7 +8,7 @@ const Users = () => {
     <div className="list">
       <SideBar />
       <div className="listContainer">
-        <Navbar />
+        <NavBar />
         <DataTableUsers />
       </div>
     </div>
