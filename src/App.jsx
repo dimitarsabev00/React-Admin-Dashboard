@@ -11,6 +11,7 @@ import Login from "./pages/Login/Login";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import Products from "./pages/Products/Products";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import Orders from "./pages/Orders/Orders";
 const App = () => {
   const { darkMode } = useContext(DarkModeContext);
   return (
@@ -71,6 +72,7 @@ const App = () => {
                 }
               />
             </Route>
+            <Route path="orders" element={<Orders />} />
           </Route>
         </Routes>
       </Router>
