@@ -10,6 +10,7 @@ import { DarkModeContext } from "./context/darkModeContext";
 import Login from "./pages/Login/Login";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import Products from "./pages/Products/Products";
+import ProductDetails from "./pages/ProductDetails/ProductDetails";
 const App = () => {
   const { darkMode } = useContext(DarkModeContext);
   return (
@@ -58,7 +59,7 @@ const App = () => {
             </Route>
             <Route path="products">
               <Route index element={<Products />} />
-              {/* <Route path=":productId" element={<Single />} /> */}
+              <Route path=":productId" element={<ProductDetails />} />
               <Route
                 path="new"
                 element={
